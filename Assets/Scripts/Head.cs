@@ -15,4 +15,12 @@ public class Head : MonoBehaviour {
         //transform.LookAt(target);
         transform.position = Vector3.MoveTowards(transform.position, target, Constants.MAX_HEAD_MOVE_DELTA * Time.deltaTime);
 	}
+
+    public void Hide() {
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+	}
+
+    public void Unhide() {
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
+    }
 }

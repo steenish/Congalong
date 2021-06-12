@@ -96,6 +96,20 @@ public class Tail : MonoBehaviour {
         }
 	}
 
+    private void FreeLast() {
+        if (people.Last != null) {
+            Person freedPerson = people.Last.Value;
+            people.RemoveLast();
+            freedPerson.Free();
+            UpdateLineNumber();
+        }
+        
+        if (people.Count == 0) {
+            graceState = GraceState.PAUSED;
+            CancelInvoke();
+        }
+    }
+
     private void UpdateGrace() {
         if (graceTimer > gracePeriodLength && graceState == GraceState.COUNTING) {
             InvokeRepeating("FreeLast", freeingIntervalLength, freeingIntervalLength);

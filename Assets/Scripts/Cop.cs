@@ -53,7 +53,7 @@ public class Cop : MonoBehaviour {
                 cooldownTimer += Time.deltaTime;
                 break;
             case CopState.CHASING:
-                if (chaseTimer > CHASE_TIME) {
+                if (chaseTimer > CHASE_TIME || GameManager.player.isPaused) {
                     ResetToPatrol();
                 } else {
                     agent.SetDestination(GameManager.player.head.transform.position);

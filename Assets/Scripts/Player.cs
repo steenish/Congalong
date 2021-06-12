@@ -25,20 +25,30 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+    public bool isPaused { get; set; }
+
     private int _drunkenness = 0;
     private int drunkenness {
         get => _drunkenness;
         set {
-            if (value > Constants.MAX_DRUNKENNESS) {
-                PissSelf();
-                _drunkenness = 0;
-			} else {
-                PositiveBottle();
+            if (_drunkenness < value) {
+                if (value > Constants.MAX_DRUNKENNESS) {
+                    PissSelf();
+                    _drunkenness = 0;
+                } else {
+                    PositiveBottle();
+                    _drunkenness = value;
+                }
+            } else {
                 _drunkenness = value;
-            }
+			}
+            
             WCSlider.value = (float)_drunkenness / Constants.MAX_DRUNKENNESS;
         }
 	}
+
+    public bool isDrunk { get => drunkenness > 0; }
+    public void SoberIncrement() { drunkenness--; }
 
 	private void Awake() {
         head = _head;
@@ -46,15 +56,14 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
-        if (Input.GetKeyDown(KeyCode.T)) {
-            tail.ClearLine(false);
-		}
+        if (!isPaused) {
+            if (Input.GetKeyDown(KeyCode.Space)) {
+                DoBottle();
+            }
 
-        if (Input.GetKeyDown(KeyCode.Space)) {
-            DoBottle();
-		}
+            HeadMovement();
+        }
 
-        HeadMovement();
         TailMovement();
     }
 
