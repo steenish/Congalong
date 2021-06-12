@@ -69,22 +69,32 @@ public class Tail : MonoBehaviour {
         person.Capture();
         people.AddLast(person);
 
-        CancelInvoke();
         graceState = GraceState.COUNTING;
-        graceTimer = 0.0f;
+        ResetGrace();
         UpdateLineNumber();
 	}
 
-    public void ClearLine() {
+    public void ClearLine(bool flee) {
         foreach (Person person in people) {
             person.Free();
+
+            if (flee) {
+                person.Flee();
+			}
 		}
 
         people.Clear();
         graceState = GraceState.PAUSED;
         UpdateLineNumber();
-
     }
+    
+    public void ResetGrace() {
+        if (graceState == GraceState.COUNTING || graceState == GraceState.FREEING) {
+            CancelInvoke();
+            graceState = GraceState.COUNTING;
+            graceTimer = 0.0f;
+        }
+	}
 
     private void FreeLast() {
         Person freedPerson = people.Last.Value;

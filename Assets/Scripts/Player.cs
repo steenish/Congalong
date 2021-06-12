@@ -25,6 +25,21 @@ public class Player : MonoBehaviour {
 		}
 	}
 
+    private int _drunkenness = 0;
+    private int drunkenness {
+        get => _drunkenness;
+        set {
+            if (value > Constants.MAX_DRUNKENNESS) {
+                PissSelf();
+                _drunkenness = 0;
+			} else {
+                PositiveBottle();
+                _drunkenness = value;
+            }
+            WCSlider.value = (float)_drunkenness / Constants.MAX_DRUNKENNESS;
+        }
+	}
+
 	private void Awake() {
         head = _head;
         tail = _tail;
@@ -32,7 +47,7 @@ public class Player : MonoBehaviour {
 
 	void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
-            tail.ClearLine();
+            tail.ClearLine(false);
 		}
 
         if (Input.GetKeyDown(KeyCode.Space)) {
@@ -61,6 +76,18 @@ public class Player : MonoBehaviour {
     private void DoBottle() {
         if (bottleEquipped) {
             bottleEquipped = false;
+            drunkenness++;
 		}
+	}
+
+    private void PissSelf() {
+        tail.ClearLine(true);
+	}
+
+    private void PositiveBottle() {
+        foreach (Person person in GameManager.people) {
+            person.Attract();
+		}
+        tail.ResetGrace();
 	}
 }
