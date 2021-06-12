@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
@@ -61,6 +62,10 @@ public class Player : MonoBehaviour {
 	}
 
 	void Update() {
+        if (Input.GetKeyDown(KeyCode.Escape)) {
+            SceneManager.LoadScene("MainMenuScene");
+		}
+
         if (!isPaused) {
             if (Input.GetKeyDown(KeyCode.Space) && isThorsty) {
                 DoBottle();

@@ -3,7 +3,12 @@ guid: 7428f3cdbc41e6c469728bdef8360967
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_Potty
+    second: {fileID: 2100000, guid: b9f6c76b7d1f984448472c5bb5f8c35e, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
