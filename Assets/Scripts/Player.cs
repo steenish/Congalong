@@ -12,6 +12,8 @@ public class Player : MonoBehaviour {
     private Slider WCSlider;
     [SerializeField]
     private Animator bottleSlotAnimator;
+    [SerializeField]
+    private Animator pissPuddleAnimator;
 
     public Head head { get; private set; }
     public Tail tail { get; private set; }
@@ -91,6 +93,8 @@ public class Player : MonoBehaviour {
 
     private void PissSelf() {
         tail.ClearLine(true);
+        pissPuddleAnimator.SetTrigger("ShowPuddle");
+        pissPuddleAnimator.transform.position = new Vector3(head.transform.position.x, pissPuddleAnimator.transform.position.y, head.transform.position.z);
 	}
 
     private void PositiveBottle() {
