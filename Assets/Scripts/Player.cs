@@ -8,14 +8,12 @@ public class Player : MonoBehaviour {
     [SerializeField]
     private Tail tail;
 
-    void Start() {
-        
-    }
-
     void Update() {
         if (Input.GetKeyDown(KeyCode.T)) {
             tail.ClearLine();
 		}
+
+        
 
         HeadMovement();
         TailMovement();

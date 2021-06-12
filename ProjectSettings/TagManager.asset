@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Head
   - Tail
+  - Person
+  - Cop
   layers:
   - Default
   - TransparentFX
