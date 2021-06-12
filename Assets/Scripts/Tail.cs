@@ -1,8 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Tail : MonoBehaviour {
+    [SerializeField]
+    private Animator lineImageAnimator;
+    [SerializeField]
+    private TMP_Text lineText;
     [SerializeField]
     private float gracePeriodLength = 10.0f;
     [SerializeField]
@@ -15,7 +20,24 @@ public class Tail : MonoBehaviour {
 	}
     
     private float graceTimer = 0.0f;
-    private GraceState graceState = GraceState.PAUSED;
+    private GraceState _graceState = GraceState.PAUSED;
+    private GraceState graceState {
+        get => _graceState;
+        set {
+            switch (value) {
+                case GraceState.COUNTING:
+                case GraceState.PAUSED:
+                    lineImageAnimator.SetBool("Vibrating", false);
+                    lineText.color = new Color32(0, 0, 0, 255);
+                    break;
+                case GraceState.FREEING:
+                    lineImageAnimator.SetBool("Vibrating", true);
+                    lineText.color = new Color32(255, 120, 0, 255);
+                    break;
+			}
+            _graceState = value;
+		}
+	}
     private LinkedList<Person> people;
 
     public static Tail instance;
@@ -50,6 +72,7 @@ public class Tail : MonoBehaviour {
         CancelInvoke();
         graceState = GraceState.COUNTING;
         graceTimer = 0.0f;
+        UpdateLineNumber();
 	}
 
     public void ClearLine() {
@@ -59,12 +82,15 @@ public class Tail : MonoBehaviour {
 
         people.Clear();
         graceState = GraceState.PAUSED;
-	}
+        UpdateLineNumber();
+
+    }
 
     private void FreeLast() {
         Person freedPerson = people.Last.Value;
         people.RemoveLast();
         freedPerson.Free();
+        UpdateLineNumber();
 
         if (people.Count == 0) {
             graceState = GraceState.PAUSED;
@@ -81,4 +107,8 @@ public class Tail : MonoBehaviour {
             graceTimer += Time.deltaTime;
         }
     }
+
+    private void UpdateLineNumber() {
+        lineText.text = people.Count.ToString();
+	}
 }
