@@ -18,6 +18,8 @@ public class Person : MonoBehaviour {
 	[SerializeField]
 	private float destionationSearchRadius = 10.0f;
 
+	private const float DISTANCE_THRESHOLD = 0.3f;
+
 	private float attractionTimer = 0.0f;
 	private float destinationSwitchThreshold;
 	private float destinationSwitchTimer = 0.0f;
@@ -74,7 +76,7 @@ public class Person : MonoBehaviour {
 	}
 
 	private void DestinationTick() {
-		if (destinationSwitchTimer > destinationSwitchThreshold || Vector3.SqrMagnitude(destination - transform.position) <= 0.3f) {
+		if (destinationSwitchTimer > destinationSwitchThreshold || Vector3.SqrMagnitude(destination - transform.position) <= DISTANCE_THRESHOLD) {
 			UpdateDestination();
 		}
 

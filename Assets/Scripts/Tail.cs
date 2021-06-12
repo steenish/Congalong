@@ -96,17 +96,6 @@ public class Tail : MonoBehaviour {
         }
 	}
 
-    private void FreeLast() {
-        Person freedPerson = people.Last.Value;
-        people.RemoveLast();
-        freedPerson.Free();
-        UpdateLineNumber();
-
-        if (people.Count == 0) {
-            graceState = GraceState.PAUSED;
-		}
-	}
-
     private void UpdateGrace() {
         if (graceTimer > gracePeriodLength && graceState == GraceState.COUNTING) {
             InvokeRepeating("FreeLast", freeingIntervalLength, freeingIntervalLength);
