@@ -18,7 +18,13 @@ public class Person : MonoBehaviour {
 	[SerializeField]
 	private float destionationSearchRadius = 10.0f;
 
+	private const float ATTRACTION_SPEED = 5.0f;
+	private const float ATTRACTION_TIME = 4.0f;
 	private const float DISTANCE_THRESHOLD = 0.3f;
+	private const float FLEEING_SPEED = 6.0f;
+	private const float FLEEING_TIME = 4.0f;
+	private const float MAX_PERSON_MOVE_DELTA = 5.0f;
+	private const float NORMAL_SPEED = 2.0f;
 
 	private float attractionTimer = 0.0f;
 	private float destinationSwitchThreshold;
@@ -34,7 +40,7 @@ public class Person : MonoBehaviour {
 	void Start() {
 		collider = GetComponent<SphereCollider>();
 		agent = GetComponent<NavMeshAgent>();
-		agent.speed = Constants.NORMAL_SPEED;
+		agent.speed = NORMAL_SPEED;
 		UpdateDestination();
 	}
 
@@ -44,7 +50,7 @@ public class Person : MonoBehaviour {
 				DestinationTick();
 				break;
 			case PersonState.ATTRACTED:
-				if (attractionTimer > Constants.ATTRACTION_TIME) {
+				if (attractionTimer > ATTRACTION_TIME) {
 					FreeToRoam();
 				} else {
 					agent.SetDestination(GameManager.player.head.transform.position);
@@ -54,7 +60,7 @@ public class Person : MonoBehaviour {
 			case PersonState.FLEEING:
 				DestinationTick();
 
-				if (fleeingTimer > Constants.FLEEING_TIME) {
+				if (fleeingTimer > FLEEING_TIME) {
 					FreeToRoam();
 				} else {
 					fleeingTimer += Time.deltaTime;
@@ -72,7 +78,7 @@ public class Person : MonoBehaviour {
 	private void FreeToRoam() {
 		state = PersonState.FREE;
 		UpdateDestination();
-		agent.speed = Constants.NORMAL_SPEED;
+		agent.speed = NORMAL_SPEED;
 	}
 
 	private void DestinationTick() {
@@ -100,21 +106,21 @@ public class Person : MonoBehaviour {
 
 	public void Move(Transform previousPerson) {
 		transform.LookAt(previousPerson.position);
-		transform.position = Vector3.MoveTowards(transform.position, HelperFunctions.FindPersonTarget(previousPerson), Constants.MAX_PERSON_MOVE_DELTA * Time.deltaTime);
+		transform.position = Vector3.MoveTowards(transform.position, HelperFunctions.FindPersonTarget(previousPerson), MAX_PERSON_MOVE_DELTA * Time.deltaTime);
 	}
 
 	public void Attract() {
 		if (state == PersonState.FREE) {
 			state = PersonState.ATTRACTED;
 			attractionTimer = 0.0f;
-			agent.speed = Constants.ATTRACTION_SPEED;
+			agent.speed = ATTRACTION_SPEED;
 		}
 	}
 
 	public void Flee() {
 		state = PersonState.FLEEING;
 		fleeingTimer = 0.0f;
-		agent.speed = Constants.FLEEING_SPEED;
+		agent.speed = FLEEING_SPEED;
 	}
 
 	private void UpdateDestination() {

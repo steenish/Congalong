@@ -78,7 +78,7 @@ public class Cop : MonoBehaviour {
     }
 
 	public void Alert() {
-        if (state == CopState.PATROLLING && cooldownTimer > COOLDOWN_TIME) {
+        if (state == CopState.PATROLLING && cooldownTimer > COOLDOWN_TIME && GameManager.player.tail.lineExists) {
             state = CopState.CHASING;
             chaseTimer = 0.0f;
 		}

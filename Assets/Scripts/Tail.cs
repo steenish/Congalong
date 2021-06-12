@@ -13,6 +13,8 @@ public class Tail : MonoBehaviour {
     [SerializeField]
     private float freeingIntervalLength = 5.0f;
 
+    public bool lineExists { get => people.Count > 0; }
+
     private enum GraceState {
         PAUSED,
         COUNTING,

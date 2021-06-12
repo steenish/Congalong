@@ -18,6 +18,8 @@ public class Player : MonoBehaviour {
     public Head head { get; private set; }
     public Tail tail { get; private set; }
 
+    private const int MAX_DRUNKENNESS = 3;
+
     private bool _bottleEquipped = false;
     private bool bottleEquipped {
         get => _bottleEquipped;
@@ -34,7 +36,7 @@ public class Player : MonoBehaviour {
         get => _drunkenness;
         set {
             if (_drunkenness < value) {
-                if (value > Constants.MAX_DRUNKENNESS) {
+                if (value > MAX_DRUNKENNESS) {
                     PissSelf();
                     _drunkenness = 0;
                 } else {
@@ -45,7 +47,7 @@ public class Player : MonoBehaviour {
                 _drunkenness = value;
 			}
             
-            WCSlider.value = (float)_drunkenness / Constants.MAX_DRUNKENNESS;
+            WCSlider.value = (float)_drunkenness / MAX_DRUNKENNESS;
         }
 	}
 
