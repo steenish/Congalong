@@ -16,11 +16,14 @@ public class PlayerCamera : MonoBehaviour {
 
 	private Vector3 currentVelocity = Vector3.zero;
 
+	public bool isHeld { get; set; } = false;
+
 	private void Start() {
 		transform.position = cameraTarget.position;
 	}
 
 	private void Update() {
+		if (isHeld) return;
 		// Update camera position.
 		transform.position = Vector3.SmoothDamp(transform.position, cameraTarget.position + cameraTranslation, ref currentVelocity, cameraSmoothTime);
 	}

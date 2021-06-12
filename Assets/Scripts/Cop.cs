@@ -5,7 +5,8 @@ using UnityEngine.AI;
 
 public enum CopState {
     PATROLLING,
-    CHASING
+    CHASING,
+    DOCILE
 }
 
 public class Cop : MonoBehaviour {
@@ -61,6 +62,9 @@ public class Cop : MonoBehaviour {
 
                 chaseTimer += Time.deltaTime;
                 break;
+            case CopState.DOCILE:
+                agent.isStopped = true;
+                break;
 		}
     }
 
@@ -82,6 +86,11 @@ public class Cop : MonoBehaviour {
             state = CopState.CHASING;
             chaseTimer = 0.0f;
 		}
+	}
+
+    public void Pacify() {
+        state = CopState.DOCILE;
+        GetComponentInChildren<Animator>().speed = 0.4f;
 	}
 
     private void Patrol() {

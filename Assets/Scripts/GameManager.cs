@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private Transform[] _bottleSpawnLocations;
 
+    public static int GOAL_NUM_PEOPLE { get; private set; }
+
     public static GameManager instance;
     public static Player player;
     public static Person[] people;
@@ -24,6 +26,7 @@ public class GameManager : MonoBehaviour {
 
         player = GameObject.Find("Player").GetComponent<Player>();
         people = GameObject.Find("People").GetComponentsInChildren<Person>();
+        GOAL_NUM_PEOPLE = people.Length == 0 ? 10 : people.Length;
         cops = GameObject.Find("Cops").GetComponentsInChildren<Cop>();
         bottles = GameObject.Find("Bottles").GetComponentsInChildren<Bottle>();
 

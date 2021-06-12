@@ -2,12 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Tail : MonoBehaviour {
     [SerializeField]
     private Animator lineImageAnimator;
     [SerializeField]
     private TMP_Text lineText;
+    [SerializeField]
+    private Image goalFlag;
+    [SerializeField]
+    private GameObject goal;
     [SerializeField]
     private float gracePeriodLength = 10.0f;
     [SerializeField]
@@ -18,7 +23,8 @@ public class Tail : MonoBehaviour {
     private enum GraceState {
         PAUSED,
         COUNTING,
-        FREEING
+        FREEING,
+        STOPPED
 	}
     
     private float graceTimer = 0.0f;
@@ -56,6 +62,21 @@ public class Tail : MonoBehaviour {
 
 	private void Update() {
         UpdateGrace();
+
+        if (people.Count >= GameManager.GOAL_NUM_PEOPLE) {
+            ResetGrace();
+            graceState = GraceState.STOPPED;
+
+            goalFlag.color = new Color(goalFlag.color.r, goalFlag.color.g, goalFlag.color.b, 1.0f);
+            lineText.color = new Color32(0, 222, 59, 255);
+            GameManager.player.isThorsty = false;
+
+            foreach (Cop cop in GameManager.cops) {
+                cop.Pacify();
+			}
+
+            goal.SetActive(true);
+        }
     }
 
 	public void Move(Transform headTransform) {

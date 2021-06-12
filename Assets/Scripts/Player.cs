@@ -30,6 +30,7 @@ public class Player : MonoBehaviour {
 	}
 
     public bool isPaused { get; set; }
+    public bool isThorsty { get; set; } = true;
 
     private int _drunkenness = 0;
     private int drunkenness {
@@ -61,7 +62,7 @@ public class Player : MonoBehaviour {
 
 	void Update() {
         if (!isPaused) {
-            if (Input.GetKeyDown(KeyCode.Space)) {
+            if (Input.GetKeyDown(KeyCode.Space) && isThorsty) {
                 DoBottle();
             }
 
