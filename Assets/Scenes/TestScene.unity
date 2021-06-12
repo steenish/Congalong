@@ -333,6 +333,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 990ab2f43555d1147a663580e44163ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  swayAmplitude: 0.5
+  swayPeriod: 4
 --- !u!54 &49495137
 Rigidbody:
   m_ObjectHideFlags: 0

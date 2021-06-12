@@ -75,7 +75,7 @@ public class Player : MonoBehaviour {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         float verticalInput = Input.GetAxisRaw("Vertical");
 
-        head.Move(horizontalInput, verticalInput);
+        head.Move(horizontalInput, verticalInput, (float)drunkenness / MAX_DRUNKENNESS);
 	}
 
     private void TailMovement() {
