@@ -49,7 +49,7 @@ public class Goal : MonoBehaviour {
 		}
 
 		if (waitTimer > waitTime) {
-			SceneManager.LoadScene("MainMenu");
+			SceneManager.LoadScene("MainMenuScene");
 		}
 	}
 }
