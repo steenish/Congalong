@@ -360,8 +360,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754607222}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.44, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children: []
   m_Father: {fileID: 49495132}
@@ -575,7 +575,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1027273505}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.27, y: 0.5, z: 11.05}
+  m_LocalPosition: {x: -5, y: 0.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1047848732}
@@ -948,10 +948,6 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 584748688607981402, guid: a4431eba138f8bf44b271f5a6b0ee75e, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 584748689231175950, guid: a4431eba138f8bf44b271f5a6b0ee75e, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1061,29 +1057,8 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 5403638914175158219, guid: 298d07503baba81429223c07b458ec76, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 298d07503baba81429223c07b458ec76, type: 3}
---- !u!1 &4218371494727454916 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5634232830188545613, guid: 4e5f0d1920904784db7ce4542519e7ef, type: 3}
-  m_PrefabInstance: {fileID: 8411169867216352905}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &4218371494727454917
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4218371494727454916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a571fe26871624f49ae402f3311d96b9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4218371494727454937 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5634232830188545616, guid: 4e5f0d1920904784db7ce4542519e7ef, type: 3}
@@ -1100,10 +1075,6 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 3223506439431865017, guid: 9385d9e8371bae24988a4ba5147c2d23, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 3223506439584615661, guid: 9385d9e8371bae24988a4ba5147c2d23, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1170,10 +1141,6 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 2674824282296783279, guid: d9b2e2d79a63ef0459f0d03e479b51c6, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.1
-      objectReference: {fileID: 0}
     - target: {fileID: 2674824282949214182, guid: d9b2e2d79a63ef0459f0d03e479b51c6, type: 3}
       propertyPath: m_Name
       value: Cow
@@ -1246,7 +1213,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5634232830188545616, guid: 4e5f0d1920904784db7ce4542519e7ef, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5634232830188545616, guid: 4e5f0d1920904784db7ce4542519e7ef, type: 3}
       propertyPath: m_LocalPosition.y
