@@ -17,6 +17,8 @@ public class Tail : MonoBehaviour {
     private float gracePeriodLength = 10.0f;
     [SerializeField]
     private float freeingIntervalLength = 5.0f;
+    [SerializeField]
+    private float[] BGMCutoffs;
 
     public bool lineExists { get => people.Count > 0; }
 
@@ -58,6 +60,7 @@ public class Tail : MonoBehaviour {
 		}
 
         people = new LinkedList<Person>();
+        Invoke("UpdateLineNumber", 0.1f);
     }
 
 	private void Update() {
@@ -95,7 +98,8 @@ public class Tail : MonoBehaviour {
         graceState = GraceState.COUNTING;
         ResetGrace();
         UpdateLineNumber();
-	}
+        UpdateSound();
+    }
 
     public void ClearLine(bool flee) {
         foreach (Person person in people) {
@@ -109,6 +113,7 @@ public class Tail : MonoBehaviour {
         people.Clear();
         graceState = GraceState.PAUSED;
         UpdateLineNumber();
+        UpdateSound();
     }
     
     public void ResetGrace() {
@@ -125,6 +130,7 @@ public class Tail : MonoBehaviour {
             people.RemoveLast();
             freedPerson.Free();
             UpdateLineNumber();
+            UpdateSound();
         }
         
         if (people.Count == 0) {
@@ -145,6 +151,34 @@ public class Tail : MonoBehaviour {
     }
 
     private void UpdateLineNumber() {
-        lineText.text = people.Count.ToString();
+        lineText.text = string.Format("{0}/{1}", people.Count.ToString(), GameManager.GOAL_NUM_PEOPLE);
 	}
+
+    private void UpdateSound() {
+        float currentLevel = (float) people.Count / GameManager.GOAL_NUM_PEOPLE;
+        AudioManager audioManager = AudioManager.instance;
+        if (currentLevel == 1) {
+            audioManager.Play("DoneTrumpet");
+		}
+
+        audioManager.FadeSoundVolume("CrowdNoise", currentLevel * AudioManager.CROWD_NOISE_MAX_VOLUME, AudioManager.FADE_TIME);
+
+        int BGMIndex = -1;
+        for (int i = 0; i < BGMCutoffs.Length; ++i) {
+            if (currentLevel > BGMCutoffs[i]) {
+                BGMIndex = i;
+			}
+		}
+        BGMIndex++;
+        
+        string[] BGMNames = new string[] { "LowBGM", "BaseBGM", "MidBGM", "TopBGM" };
+        for (int i = 0; i < BGMNames.Length; ++i) {
+            if (i == BGMIndex) {
+                audioManager.FadeSoundVolume(BGMNames[i], 0.5f, AudioManager.FADE_TIME);
+			} else {
+                audioManager.FadeSoundVolume(BGMNames[i], 0.0f, AudioManager.FADE_TIME);
+            }
+		}
+	}
+
 }

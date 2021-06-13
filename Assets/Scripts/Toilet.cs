@@ -14,6 +14,7 @@ public class Toilet : MonoBehaviour {
 			GameManager.player.isPaused = true;
 			GameManager.player.head.Hide();
 			InvokeRepeating("SoberUpAndCheck", stepTime, stepTime);
+			AudioManager.instance.Play("Peeing");
 		}
 	}
 
@@ -25,6 +26,8 @@ public class Toilet : MonoBehaviour {
 			player.head.transform.position -= transform.right * 3.0f;
 			player.isPaused = false;
 			player.head.Unhide();
+			AudioManager.instance.Stop("Peeing");
+			AudioManager.instance.Play("Flush");
 		}
 	}
 }
