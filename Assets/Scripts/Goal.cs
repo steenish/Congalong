@@ -8,7 +8,7 @@ public class Goal : MonoBehaviour {
 	[SerializeField]
 	private float walkSpeed = 1.0f;
 	[SerializeField]
-	private float waitTime = 20.0f;
+	private float waitTime = 10.0f;
 	[SerializeField]
 	private GameObject winText;
 	[SerializeField]
@@ -35,6 +35,7 @@ public class Goal : MonoBehaviour {
 			townHallCollider.enabled = false;
 			Camera.main.GetComponent<PlayerCamera>().isHeld = true;
 			goalArrow.SetActive(false);
+			AudioManager.instance.Play("WinTrumpet");
 
 			foreach (Person person in GameManager.people) {
 				person.GetComponent<NavMeshAgent>().enabled = false;

@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4452601431672236364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4452601431672236366}
+  - component: {fileID: 4452601431672236365}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4452601431672236366
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452601431672236364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4452601431672236365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4452601431672236364}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c4463edbdfc1084fb55e2aad9f5f867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - _name: BaseBGM
+    _audioClip: {fileID: 8300000, guid: dbe87b0733272fb40ac7e40b84162354, type: 3}
+    _loop: 1
+    _volume: 0
+    _pitch: 1
+  - _name: MidBGM
+    _audioClip: {fileID: 8300000, guid: ba758b25770de184189a28b8057914b2, type: 3}
+    _loop: 1
+    _volume: 0
+    _pitch: 1
+  - _name: TopBGM
+    _audioClip: {fileID: 8300000, guid: 7f2b9c8db8455c446a1307b7fe3b52ab, type: 3}
+    _loop: 1
+    _volume: 0
+    _pitch: 1
+  - _name: LowBGM
+    _audioClip: {fileID: 8300000, guid: e3fcea74461d03e4d90ccea8b6826b30, type: 3}
+    _loop: 1
+    _volume: 0.5
+    _pitch: 1
+  - _name: DoneTrumpet
+    _audioClip: {fileID: 8300000, guid: f0ea3967f34cf704f952262cb206e1ec, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: WinTrumpet
+    _audioClip: {fileID: 8300000, guid: ca8c9aa3ee3092b4e8da16f394ce90e7, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: PeopleNoise
+    _audioClip: {fileID: 8300000, guid: ca8c9aa3ee3092b4e8da16f394ce90e7, type: 3}
+    _loop: 1
+    _volume: 0.5
+    _pitch: 1
+  - _name: CheeringNoise
+    _audioClip: {fileID: 8300000, guid: ca8c9aa3ee3092b4e8da16f394ce90e7, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1

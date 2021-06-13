@@ -11,7 +11,18 @@ public class Head : MonoBehaviour {
     private const float HEAD_TARGET_DISTANCE = 1.5f;
     private const float MAX_HEAD_MOVE_DELTA = 5.0f;
 
-    public void Move(float horizontalInput, float verticalInput, float swayAmount) {
+    private Rigidbody rb;
+
+	private void Start() {
+        rb = GetComponent<Rigidbody>();
+	}
+
+	private void Update() {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+	}
+
+	public void Move(float horizontalInput, float verticalInput, float swayAmount) {
         Vector3 deltaMovement = Vector3.Normalize(Vector3.right * horizontalInput + Vector3.forward * verticalInput);
         float sway = Mathf.Sin(Time.time * swayPeriod) * swayAmplitude * Mathf.Clamp01(Mathf.Abs(horizontalInput) + Mathf.Abs(verticalInput));
         Vector3 target = transform.position + deltaMovement * HEAD_TARGET_DISTANCE + transform.right * sway * swayAmount;
