@@ -23,6 +23,7 @@ public class Cop : MonoBehaviour {
     private float chaseTimer = 0.0f;
     private float cooldownTimer = 0.0f;
     private int _currentPatrolIndex = 0;
+    private AudioSource snort;
     private int currentPatrolIndex {
         get => _currentPatrolIndex;
         set {
@@ -44,6 +45,7 @@ public class Cop : MonoBehaviour {
 
         agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
+        snort = GetComponent<AudioSource>();
     }
 
     void Update() {
@@ -85,6 +87,7 @@ public class Cop : MonoBehaviour {
         if (state == CopState.PATROLLING && cooldownTimer > COOLDOWN_TIME && GameManager.player.tail.lineExists) {
             state = CopState.CHASING;
             chaseTimer = 0.0f;
+            snort.Play();
 		}
 	}
 

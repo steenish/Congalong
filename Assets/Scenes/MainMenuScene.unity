@@ -13990,8 +13990,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 25}
-  m_SizeDelta: {x: 502.2, y: 50}
+  m_AnchoredPosition: {x: 0, y: 65}
+  m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1137120622
 MonoBehaviour:
@@ -14013,15 +14013,26 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Conga is your life, your passion, your everything. You wake up one day
-    to the news that the Mayor has outlawed conga lines, and you feel that it is
-    your calling to protest this. Gather up all the (at times unwilling) citizens
-    into one large conga line by bumping into them, and avoid the cops. Calling a
-    toast with a bottle of juice will surely attract more people to your cause, but
-    watch that bladder!
+  m_text: 'What?! Dancing has been outlawed?
+
+    Show that no-fun mayor who the
+    real party king is!
+
+
+    Gather a conga line of 20 people and march to the town
+    hall!
+
+    Move toward people with WASD.
+
+    Pop any bottles you may find with
+    SPACE to attract nearby people, although overimbibing will have consequences,
+    so make sure to visit a restroom.
+
+    Cops will try to break up the line. Avoid
+    them!'
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ed6d93a5ce5043e479a6471f1e50776a, type: 2}
-  m_sharedMaterial: {fileID: 3177452329764691095, guid: ed6d93a5ce5043e479a6471f1e50776a, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 46e59bc9d2e73a1448804cd38e94fe04, type: 2}
+  m_sharedMaterial: {fileID: 4388213656655441395, guid: 46e59bc9d2e73a1448804cd38e94fe04, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -14051,8 +14062,8 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 32
-  m_HorizontalAlignment: 8
+  m_fontStyle: 0
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0

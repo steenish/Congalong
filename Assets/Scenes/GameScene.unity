@@ -781,6 +781,7 @@ GameObject:
   - component: {fileID: 49495133}
   - component: {fileID: 49495137}
   - component: {fileID: 49495136}
+  - component: {fileID: 49495134}
   m_Layer: 0
   m_Name: Head
   m_TagString: Head
@@ -816,6 +817,14 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!81 &49495134
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 49495131}
+  m_Enabled: 1
 --- !u!114 &49495136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15103,7 +15112,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
-  - component: {fileID: 963194226}
   - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: PlayerCamera
@@ -15112,14 +15120,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!81 &963194226
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963194225}
-  m_Enabled: 1
 --- !u!20 &963194227
 Camera:
   m_ObjectHideFlags: 0
@@ -59440,6 +59440,14 @@ PrefabInstance:
       propertyPath: targetCamera
       value: 
       objectReference: {fileID: 963194227}
+    - target: {fileID: 6665387360512894732, guid: 9549e9fcf1bb6664d8f8bd0cd2216220, type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6665387360512894732, guid: 9549e9fcf1bb6664d8f8bd0cd2216220, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9549e9fcf1bb6664d8f8bd0cd2216220, type: 3}
 --- !u!1001 &1202162640
