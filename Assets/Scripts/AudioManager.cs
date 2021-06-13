@@ -19,6 +19,7 @@ public class AudioManager : MonoBehaviour {
 
     public static float FADE_TIME = 1.0f;
     public static float BGM_VOLUME = 0.5f;
+    public static float CROWD_NOISE_MAX_VOLUME = 0.5f;
     private const int FADE_STEPS_PER_SEC = 10;
 
     private void OnEnable() {
@@ -53,6 +54,8 @@ public class AudioManager : MonoBehaviour {
 
             if (sound.name == "LowBGM") {
                 BGM_VOLUME = sound.volume;
+			} else if (sound.name == "CrowdNoise") {
+                CROWD_NOISE_MAX_VOLUME = sound.volume;
 			}
         }
     }
@@ -121,8 +124,6 @@ public class AudioManager : MonoBehaviour {
             sound.source.volume = Mathf.Lerp(startVolume, targetVolume, t);
             yield return new WaitForSecondsRealtime(timePerStep);
 		}
-        Debug.Log(string.Format("Sound name: {0}, startVolume: {1}, targetVolume: {2}, final volume: {3}", sound.name, startVolume, targetVolume, sound.source.volume));
-
     }
 
     private void PlayNewSceneSounds(Scene scene, LoadSceneMode mode) {
@@ -137,6 +138,9 @@ public class AudioManager : MonoBehaviour {
                 FadeSoundVolume("BaseBGM", 0.0f, FADE_TIME);
                 FadeSoundVolume("MidBGM", 0.0f, FADE_TIME);
                 FadeSoundVolume("TopBGM", 0.0f, FADE_TIME);
+
+                Play("CrowdNoise");
+                ChangeSoundVolume("CrowdNoise", 0.0f);
                 break;
         }
     }

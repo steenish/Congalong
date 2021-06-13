@@ -36,6 +36,7 @@ public class Goal : MonoBehaviour {
 			Camera.main.GetComponent<PlayerCamera>().isHeld = true;
 			goalArrow.SetActive(false);
 			AudioManager.instance.Play("WinTrumpet");
+			AudioManager.instance.Play("CheeringNoise");
 
 			foreach (Person person in GameManager.people) {
 				person.GetComponent<NavMeshAgent>().enabled = false;

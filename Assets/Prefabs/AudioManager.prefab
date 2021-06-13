@@ -74,13 +74,13 @@ MonoBehaviour:
     _loop: 0
     _volume: 0.5
     _pitch: 1
-  - _name: PeopleNoise
-    _audioClip: {fileID: 8300000, guid: ca8c9aa3ee3092b4e8da16f394ce90e7, type: 3}
+  - _name: CrowdNoise
+    _audioClip: {fileID: 8300000, guid: 03f2d4ea0f6f4eb4cb64308d19d62eb5, type: 3}
     _loop: 1
     _volume: 0.5
     _pitch: 1
   - _name: CheeringNoise
-    _audioClip: {fileID: 8300000, guid: ca8c9aa3ee3092b4e8da16f394ce90e7, type: 3}
+    _audioClip: {fileID: 8300000, guid: 8db715ece308c714fa2ada837e575d65, type: 3}
     _loop: 0
     _volume: 0.5
     _pitch: 1
