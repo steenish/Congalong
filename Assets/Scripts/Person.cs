@@ -23,7 +23,7 @@ public class Person : MonoBehaviour {
 	private const float DISTANCE_THRESHOLD = 0.3f;
 	private const float FLEEING_SPEED = 6.0f;
 	private const float FLEEING_TIME = 4.0f;
-	private const float MAX_PERSON_MOVE_DELTA = 7.5f;
+	private const float MAX_PERSON_MOVE_DELTA = 6.5f;
 	private const float NORMAL_SPEED = 2.0f;
 
 	private float attractionTimer = 0.0f;

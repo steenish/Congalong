@@ -148,6 +148,12 @@ public class AudioManager : MonoBehaviour {
                 Stop("MidBGM");
                 Stop("TopBGM");
                 Stop("CrowdNoise");
+                ChangeSoundVolume("LowBGM", 0.0f);
+                ChangeSoundVolume("BaseBGM", 0.0f);
+                ChangeSoundVolume("MidBGM", 0.0f);
+                ChangeSoundVolume("TopBGM", 0.0f);
+                ChangeSoundVolume("CrowdNoise", 0.0f);
+
                 Play("MenuMusic");
                 break;
         }
