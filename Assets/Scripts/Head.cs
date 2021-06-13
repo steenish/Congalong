@@ -8,6 +8,8 @@ public class Head : MonoBehaviour {
     [SerializeField]
     private float swayPeriod = 0.3f;
 
+    public Animator spriteAnimator { get; private set; }
+
     private const float HEAD_TARGET_DISTANCE = 1.5f;
     private const float MAX_HEAD_MOVE_DELTA = 5.0f;
 
@@ -15,6 +17,7 @@ public class Head : MonoBehaviour {
 
 	private void Start() {
         rb = GetComponent<Rigidbody>();
+        spriteAnimator = GetComponentInChildren<Animator>();
 	}
 
 	private void Update() {

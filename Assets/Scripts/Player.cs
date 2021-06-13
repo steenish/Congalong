@@ -112,6 +112,7 @@ public class Player : MonoBehaviour {
         foreach (Person person in GameManager.people) {
             person.Attract();
 		}
+        head.spriteAnimator.SetTrigger("PopBottle");
         tail.ResetGrace();
 	}
 }

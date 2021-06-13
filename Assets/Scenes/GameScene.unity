@@ -11411,7 +11411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 5
-  waitTime: 10
+  waitTime: 12
   winText: {fileID: 1415624627}
   walkTarget: {fileID: 1401884839}
   townHallCollider: {fileID: 607782897}
@@ -11615,7 +11615,7 @@ GameObject:
   - component: {fileID: 754607225}
   - component: {fileID: 754607224}
   m_Layer: 0
-  m_Name: BillboardSprite
+  m_Name: HeadBillboardSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
