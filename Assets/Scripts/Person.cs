@@ -36,12 +36,14 @@ public class Person : MonoBehaviour {
 	private SphereCollider collider;
 #pragma warning restore
 	private Vector3 destination;
+	private AudioSource noise;
 
 	void Start() {
 		collider = GetComponent<SphereCollider>();
 		agent = GetComponent<NavMeshAgent>();
 		agent.speed = NORMAL_SPEED;
 		UpdateDestination();
+		noise = GetComponent<AudioSource>();
 	}
 
 	void Update() {
@@ -102,6 +104,7 @@ public class Person : MonoBehaviour {
 		collider.isTrigger = false;
 		gameObject.tag = "Tail";
 		agent.isStopped = true;
+		noise.Play();
 	}
 
 	public void Move(Transform previousPerson) {

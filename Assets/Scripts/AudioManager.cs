@@ -129,7 +129,7 @@ public class AudioManager : MonoBehaviour {
     private void PlayNewSceneSounds(Scene scene, LoadSceneMode mode) {
         switch (scene.name) {
             case "GameScene":
-            case "MainMenuScene":
+                Stop("MenuMusic");
                 Play("LowBGM");
                 Play("BaseBGM");
                 Play("MidBGM");
@@ -141,6 +141,14 @@ public class AudioManager : MonoBehaviour {
 
                 Play("CrowdNoise");
                 ChangeSoundVolume("CrowdNoise", 0.0f);
+                break;
+            case "MainMenuScene":
+                Stop("LowBGM");
+                Stop("BaseBGM");
+                Stop("MidBGM");
+                Stop("TopBGM");
+                Stop("CrowdNoise");
+                Play("MenuMusic");
                 break;
         }
     }

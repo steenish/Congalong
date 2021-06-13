@@ -9,6 +9,7 @@ public class Bottle : MonoBehaviour {
 		if (other.tag == "Head") {
 			GameManager.player.EquipBottle();
 			SpawnNewBottle();
+			AudioManager.instance.Play("BottlePickup");
 		}
 	}
 

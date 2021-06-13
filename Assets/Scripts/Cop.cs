@@ -12,6 +12,8 @@ public enum CopState {
 public class Cop : MonoBehaviour {
     [SerializeField]
     private Transform _patrolRoute;
+    [SerializeField]
+    private AudioSource snort;
 
     private Vector3[] patrolRoute;
 
@@ -23,7 +25,7 @@ public class Cop : MonoBehaviour {
     private float chaseTimer = 0.0f;
     private float cooldownTimer = 0.0f;
     private int _currentPatrolIndex = 0;
-    private AudioSource snort;
+    
     private int currentPatrolIndex {
         get => _currentPatrolIndex;
         set {
@@ -45,7 +47,6 @@ public class Cop : MonoBehaviour {
 
         agent = GetComponent<NavMeshAgent>();
         agent.isStopped = true;
-        snort = GetComponent<AudioSource>();
     }
 
     void Update() {

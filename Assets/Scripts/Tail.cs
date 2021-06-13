@@ -113,6 +113,7 @@ public class Tail : MonoBehaviour {
         people.Clear();
         graceState = GraceState.PAUSED;
         UpdateLineNumber();
+        AudioManager.instance.Play("Boo");
         UpdateSound();
     }
     

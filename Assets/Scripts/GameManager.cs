@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     public static Bottle[] bottles;
     public static Vector3[] bottleSpawnLocations;
     public static bool[] bottleSpawned;
+    public static Timer timer;
 
     void Start() {
         if (instance == null) {
@@ -29,6 +30,7 @@ public class GameManager : MonoBehaviour {
         GOAL_NUM_PEOPLE = people.Length == 0 ? 10 : people.Length;
         cops = GameObject.Find("Cops").GetComponentsInChildren<Cop>();
         bottles = GameObject.Find("Bottles").GetComponentsInChildren<Bottle>();
+        timer = GameObject.Find("Timer").GetComponent<Timer>();
 
         bottleSpawnLocations = new Vector3[_bottleSpawnLocations.Length];
         for (int i = 0; i < _bottleSpawnLocations.Length; ++i) {

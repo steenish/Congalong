@@ -96,11 +96,14 @@ public class Player : MonoBehaviour {
         if (bottleEquipped) {
             bottleEquipped = false;
             drunkenness++;
-		}
+            AudioManager.instance.Play("BottlePop");
+            AudioManager.instance.Play("PartyHorn");
+        }
 	}
 
     private void PissSelf() {
         tail.ClearLine(true);
+        AudioManager.instance.Play("PeeingGround");
         pissPuddleAnimator.SetTrigger("ShowPuddle");
         pissPuddleAnimator.transform.position = new Vector3(head.transform.position.x, pissPuddleAnimator.transform.position.y, head.transform.position.z);
 	}

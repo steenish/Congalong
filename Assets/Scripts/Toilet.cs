@@ -7,6 +7,8 @@ public class Toilet : MonoBehaviour {
 	private float stepTime = 1.0f;
 	[SerializeField]
 	private Transform childBoxCollider;
+	[SerializeField]
+	private AudioSource flush;
 
 	private void OnTriggerEnter(Collider other) {
 		if (other.tag == "Head" && GameManager.player.isDrunk) {
@@ -27,7 +29,7 @@ public class Toilet : MonoBehaviour {
 			player.isPaused = false;
 			player.head.Unhide();
 			AudioManager.instance.Stop("Peeing");
-			AudioManager.instance.Play("Flush");
+			flush.Play();
 		}
 	}
 }

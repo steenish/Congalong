@@ -84,3 +84,38 @@ MonoBehaviour:
     _loop: 0
     _volume: 0.5
     _pitch: 1
+  - _name: MenuMusic
+    _audioClip: {fileID: 8300000, guid: 3ab34c3a57456234cb8daedc29985cb0, type: 3}
+    _loop: 1
+    _volume: 0.5
+    _pitch: 1
+  - _name: BottlePop
+    _audioClip: {fileID: 8300000, guid: 7cd2813002029ce43b3155a580be071e, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: Peeing
+    _audioClip: {fileID: 8300000, guid: 237d27656489f2942b71f3196d599e37, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: BottlePickup
+    _audioClip: {fileID: 8300000, guid: c6d3e952dc05a954a82e4510d08e1127, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: PartyHorn
+    _audioClip: {fileID: 8300000, guid: e532558fc71b311458b0254c2646c5ec, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: Boo
+    _audioClip: {fileID: 8300000, guid: 8574b9faa9289374584ba05f6a6ba5ce, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1
+  - _name: PeeingGround
+    _audioClip: {fileID: 8300000, guid: 4da92cabd0bdccf4aa8a1c5943d973e8, type: 3}
+    _loop: 0
+    _volume: 0.5
+    _pitch: 1

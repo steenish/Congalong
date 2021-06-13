@@ -37,6 +37,7 @@ public class Goal : MonoBehaviour {
 			goalArrow.SetActive(false);
 			AudioManager.instance.Play("WinTrumpet");
 			AudioManager.instance.Play("CheeringNoise");
+			GameManager.timer.isPaused = true;
 
 			foreach (Person person in GameManager.people) {
 				person.GetComponent<NavMeshAgent>().enabled = false;
