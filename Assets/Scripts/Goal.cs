@@ -38,6 +38,7 @@ public class Goal : MonoBehaviour {
 			AudioManager.instance.Play("WinTrumpet");
 			AudioManager.instance.Play("CheeringNoise");
 			GameManager.timer.isPaused = true;
+			GameManager.player.head.GetComponent<SphereCollider>().enabled = false;
 
 			foreach (Person person in GameManager.people) {
 				person.GetComponent<NavMeshAgent>().enabled = false;

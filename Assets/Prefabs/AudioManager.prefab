@@ -117,5 +117,10 @@ MonoBehaviour:
   - _name: PeeingGround
     _audioClip: {fileID: 8300000, guid: 4da92cabd0bdccf4aa8a1c5943d973e8, type: 3}
     _loop: 0
+    _volume: 0.8
+    _pitch: 1
+  - _name: StartWhistle
+    _audioClip: {fileID: 8300000, guid: 6408801943b238249a9a7acca291271b, type: 3}
+    _loop: 0
     _volume: 0.5
     _pitch: 1
