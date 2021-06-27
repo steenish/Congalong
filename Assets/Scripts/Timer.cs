@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using TMPro;
 using UnityEngine;
 
@@ -14,14 +15,14 @@ public class Timer : MonoBehaviour {
 	private void Update() {
 		if (!isPaused) {
 			timeValue += Time.deltaTime;
-			timeValue = Mathf.Clamp(timeValue, 0.0f, 5999.0f);
+			timeValue = Mathf.Clamp(timeValue, 0.0f, 5999.999f);
 			//timerText.text = Mathf.FloorToInt(timeValue).ToString();
 			timerText.text = FormatTime();
 		}
 	}
 
 	private string FormatTime() {
-		int value = Mathf.FloorToInt(timeValue);
-		return string.Format("{0}:{1}", Mathf.FloorToInt((float)value / 60.0f).ToString("D2"), (value % 60).ToString("D2"));
+		int seconds = Mathf.FloorToInt(timeValue);
+		return string.Format("{0}:{1}", Mathf.FloorToInt((float)seconds / 60.0f).ToString("D2"), (timeValue % 60.0f).ToString("00.000", new CultureInfo("en-US")));
 	}
 }

@@ -9,5 +9,9 @@ public class MenuManager : MonoBehaviour {
 			SceneManager.LoadScene("GameScene");
 			AudioManager.instance.Play("StartWhistle");
 		}
+
+		if (Input.GetKeyDown(KeyCode.Escape) && Application.platform != RuntimePlatform.WebGLPlayer) {
+			Application.Quit();
+		}
 	}
 }
